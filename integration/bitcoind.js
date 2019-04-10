@@ -26,15 +26,15 @@ var messages = new Messages({
   network: network
 });
 var blockHash = {
-  'livenet': '000000000000000013413cf2536b491bf0988f52e90c476ffeb701c8bfdb1db9',
+  'livenet': '3a0ed92600891e7b7ef385f0da3c8125e6778f2f26b58c67ec01d1fc38f1a11b',
   'testnet': '0000000058cc069d964711cd25083c0a709f4df2b34c8ff9302ce71fe5b45786'
 };
 var stopBlock = {
-  'livenet': '00000000000000000b539ef570128acb953af3dbcfc19dd8e6066949672311a1',
+  'livenet': 'b22d573142dd715ebc6cde5fb48495e5cd33853fa3ffc77d76017091139f01dd',
   'testnet': '00000000d0bc4271bcefaa7eb25000e345910ba16b91eb375cd944b68624de9f'
 };
 var txHash = {
-  'livenet': '22231e8219a0617a0ded618b5dc713fdf9b0db8ebd5bb3322d3011a703119d3b',
+  'livenet': 'cafbe81ef00ebdb7013f1af0fb31ac2ee5ac6c7b796a8be6070fa147f4d46b54',
   'testnet': '22231e8219a0617a0ded618b5dc713fdf9b0db8ebd5bb3322d3011a703119d3b'
 };
 
@@ -53,7 +53,7 @@ describe('Integration with ' + network.name + ' bitcoind', function() {
       m.services.toString().should.equal('1');
       Math.abs(new Date() - m.timestamp).should.be.below(10000); // less than 10 seconds of time difference
       m.nonce.length.should.equal(8);
-      m.startHeight.should.be.above(300000);
+      m.startHeight.should.be.above(20000);
       cb();
     });
     peer.once('verack', function(m) {
